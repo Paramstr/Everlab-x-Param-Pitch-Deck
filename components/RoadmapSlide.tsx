@@ -205,15 +205,15 @@ export const RoadmapSlide = () => {
 
   return (
     <Slide className="bg-transparent">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 h-full max-h-[85vh] w-full max-w-7xl mx-auto items-center relative z-10">
+      <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 md:gap-12 h-full max-h-[85vh] w-full max-w-7xl mx-auto items-center relative z-10 px-4 md:px-8">
         
         {/* LEFT COLUMN: Dual Visualisation */}
         <div className="lg:col-span-5 h-full relative flex flex-col" ref={containerRef}>
            
            {/* Column Headers - Fixed at top relative to column */}
-           <div className="flex justify-between px-4 text-[11px] uppercase tracking-[0.2em] font-bold  mt-12 text-stone-400 z-20 shrink-0">
-               <span className="w-1/2 text-center text-stone-600 pl-12">Traditional</span>
-               <span className="w-1/2 text-center text-emerald-600 bg-emerald-50/50 rounded-full">Lean & Validated</span>
+           <div className="flex justify-between px-2 md:px-4 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mt-6 md:mt-12 text-stone-400 z-20 shrink-0">
+               <span className="w-1/2 text-center text-stone-600 pl-6 md:pl-12 text-[9px] md:text-[11px]">Traditional</span>
+               <span className="w-1/2 text-center text-emerald-600 bg-emerald-50/50 rounded-full py-1 px-2 text-[9px] md:text-[11px]">Lean & Validated</span>
            </div>
 
            {/* The SVG Canvas Container */}
@@ -379,9 +379,9 @@ export const RoadmapSlide = () => {
 
         {/* RIGHT COLUMN: Content Panel */}
         <div className="lg:col-span-7 h-full flex flex-col justify-center pl-0 pointer-events-none md:pointer-events-auto">
-          <div className="mb-6 pl-2">
+          <div className="mb-4 md:mb-6 pl-2">
               <span className="text-xs font-bold tracking-widest uppercase text-stone-400 mb-2 block">Execution Strategy</span>
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-stone-900 leading-tight">
+              <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-stone-900 leading-tight">
                   From <span className="opacity-30 line-through decoration-stone-300">Waterfall</span> to <br/> <span className="italic text-emerald-700">Discovery-First</span>
               </h2>
           </div>
@@ -389,7 +389,7 @@ export const RoadmapSlide = () => {
           {/* DARK MODE CARD */}
           <div 
             className={`
-              rounded-3xl p-8 md:p-10 shadow-2xl min-h-[450px] flex flex-col relative overflow-hidden transition-all duration-500 border 
+              rounded-2xl md:rounded-3xl p-4 md:p-8 lg:p-10 shadow-2xl min-h-[350px] md:min-h-[450px] flex flex-col relative overflow-hidden transition-all duration-500 border 
               ${isSpecialStep ? 'bg-slate-900 border-slate-700' : 'bg-stone-900 border-stone-800'}
               text-white
             `}
@@ -435,7 +435,7 @@ export const RoadmapSlide = () => {
                                     {leanSteps[activeStep].content.specialBadge}
                                 </span>
                             )}
-                            <h3 className="font-serif text-2xl md:text-3xl text-stone-100 leading-tight mb-2">
+                            <h3 className="font-serif text-xl md:text-2xl lg:text-3xl text-stone-100 leading-tight mb-2">
                                 {leanSteps[activeStep].content.headline}
                             </h3>
                             {leanSteps[activeStep].content.subhead && (
@@ -444,9 +444,9 @@ export const RoadmapSlide = () => {
                        </div>
                        
                        {/* Scrollable Content Area */}
-                       <div className="overflow-y-auto pr-2 space-y-6 custom-scrollbar flex-1">
+                       <div className="overflow-y-auto pr-1 md:pr-2 space-y-4 md:space-y-6 custom-scrollbar flex-1">
                            {/* Intro Paragraph */}
-                           <p className={`font-sans leading-relaxed text-base font-light border-l-2 pl-4 transition-colors duration-300
+                           <p className={`font-sans leading-relaxed text-sm md:text-base font-light border-l-2 pl-3 md:pl-4 transition-colors duration-300
                                ${isSpecialStep ? 'text-slate-200 border-slate-600' : 'text-stone-300 border-emerald-500/50'}
                            `}>
                               {leanSteps[activeStep].content.intro}
@@ -456,8 +456,8 @@ export const RoadmapSlide = () => {
                            {leanSteps[activeStep].content.bullets && (
                                 <ul className="space-y-2 pl-1">
                                     {leanSteps[activeStep].content.bullets.map((bullet, i) => (
-                                        <li key={i} className="flex items-start gap-3 text-stone-400 font-sans text-sm font-light">
-                                            <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${isSpecialStep ? 'bg-slate-500' : 'bg-emerald-600'}`} />
+                                        <li key={i} className="flex items-start gap-2 md:gap-3 text-stone-400 font-sans text-xs md:text-sm font-light">
+                                            <span className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full mt-1.5 shrink-0 ${isSpecialStep ? 'bg-slate-500' : 'bg-emerald-600'}`} />
                                             <span className={`leading-relaxed ${isSpecialStep ? 'text-slate-300' : ''}`}>{bullet}</span>
                                         </li>
                                     ))}
@@ -466,13 +466,13 @@ export const RoadmapSlide = () => {
 
                            {/* Detail Sections */}
                            {leanSteps[activeStep].content.sections && (
-                                <div className={`grid gap-4 pt-4 mt-2 border-t ${isSpecialStep ? 'border-slate-800' : 'border-stone-800/50'}`}>
+                                <div className={`grid gap-3 md:gap-4 pt-3 md:pt-4 mt-2 border-t ${isSpecialStep ? 'border-slate-800' : 'border-stone-800/50'}`}>
                                     {leanSteps[activeStep].content.sections.map((section, i) => (
-                                        <div key={i} className={`p-4 rounded-xl border ${isSpecialStep ? 'bg-slate-800/30 border-slate-800' : 'bg-stone-800/30 border-stone-800/50'}`}>
+                                        <div key={i} className={`p-3 md:p-4 rounded-lg md:rounded-xl border ${isSpecialStep ? 'bg-slate-800/30 border-slate-800' : 'bg-stone-800/30 border-stone-800/50'}`}>
                                             <h4 className={`text-[10px] font-bold uppercase tracking-widest mb-2 ${isSpecialStep ? 'text-slate-400' : 'text-stone-500'}`}>
                                                 {section.label}
                                             </h4>
-                                            <p className="text-stone-300 text-sm font-light leading-relaxed">
+                                            <p className="text-stone-300 text-xs md:text-sm font-light leading-relaxed">
                                                 {section.text}
                                             </p>
                                         </div>
